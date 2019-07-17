@@ -26,7 +26,7 @@ public class DataInitializer {
 	public void init() {
 		log.debug("setup data data");
 		if (0 == peopleRepository.count()) {
-			Stream.of("Dirk", "Mark", "Peter", "Bart", "Jhon", "Luc").map(name -> new Person(name))
+			Stream.of("Dirk", "Bart", "Mathieus", "Rudy", "Kevin", "Steven","Eric").map(name -> new Person(name))
 				  .forEach(s -> peopleRepository.save(s));
 			log.debug("inserted :" + peopleRepository.findAll());
 		} else {
