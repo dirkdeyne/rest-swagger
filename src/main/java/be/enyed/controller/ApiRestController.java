@@ -32,10 +32,10 @@ import io.swagger.annotations.Tag;
 			@Tag(description = "All the people",name = "people")
 		}
 	)
-public class ApiController {
+public class ApiRestController {
 	private final PeopleService peopleService;
 	
-	public ApiController(PeopleService peopleService) {
+	public ApiRestController(PeopleService peopleService) {
 		this.peopleService = peopleService;
 	}
 
@@ -58,14 +58,14 @@ public class ApiController {
 	
 	@PostMapping( path = "/person" , consumes =  "application/json")
 	@ApiParam(
-		name = "body",
+		name = "person",
 		examples = @Example( @ExampleProperty(mediaType =  "application/json", value = "{id: 3}")),
 		allowEmptyValue = false, 
 		allowMultiple = false,
 		required = true
 			)
-	public ResponseEntity<Person> person(@RequestBody Map<String, Long> body) {
-		return ResponseEntity.ok(peopleService.findOne(body.get("id")));
+	public ResponseEntity<Person> person(@RequestBody Map<String, String> person) {
+		return ResponseEntity.ok(peopleService.findOne(Long.decode(person.get("id"))));
 	}
 
 }

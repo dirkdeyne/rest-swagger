@@ -4,7 +4,6 @@ import java.util.stream.Stream;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.boot.context.event.ApplicationStartingEvent;
 import org.springframework.context.event.ApplicationContextEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
